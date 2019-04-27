@@ -39,7 +39,7 @@ const TwoNumberSum = {
     solution3: function(array, targetSum) {
         array.sort((a,b) => a - b);
         let x = 0;
-        let y = array.length;
+        let y = array.length - 1;
 
         while (x < y) {
             let actualSum = array[x] + array[y];
@@ -48,7 +48,7 @@ const TwoNumberSum = {
             } else if (actualSum > targetSum) {
                 y--;
             } else if (actualSum < targetSum) {
-                x--;
+                x++;
             }
         }
 
