@@ -34,5 +34,24 @@ const TwoNumberSum = {
             }
         };
         return [];
+    },
+    // O(nlog(n)) | O(1) space
+    solution3: function(array, targetSum) {
+        array.sort((a,b) => a - b);
+        let x = 0;
+        let y = array.length;
+
+        while (x < y) {
+            let actualSum = array[x] + array[y];
+            if (actualSum === targetSum) {
+                return [array[x], array[y]];
+            } else if (actualSum > targetSum) {
+                y--;
+            } else if (actualSum < targetSum) {
+                x--;
+            }
+        }
+
+        return [];
     }
 }
