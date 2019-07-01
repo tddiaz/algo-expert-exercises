@@ -76,8 +76,12 @@ class DoublyLinkedList {
             return;
         }
 
+        // if position is 1 set as head
         if (position === 1) {
-            this.insertBefore(this.head, nodeToInsert);
+            this.head.prev = nodeToInsert;
+            nodeToInsert.next = this.head;
+            this.head = nodeToInsert;
+						this.size++;
         } else {
             let index = 1;
             let node = this.head;
